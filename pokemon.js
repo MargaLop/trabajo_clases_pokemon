@@ -14,7 +14,7 @@ class Pokemon {
 
     attack() {
 
-        return `${this.name}, esta atacando ${this.symbol}`;
+        return `${this.name} esta atacando ${this.symbol}`;
 
     }
 
@@ -31,19 +31,19 @@ class Pokemon {
 }
 
 
-// Creando instancia para charmander
-const Charmander = new Pokemon("Charmander", "Fire", ["Charmeleon", "Charizar"],"🔥");
+let pokeList = [
+    new Pokemon("Charmander", "Fire", ["Charmeleon", "Charizar"],"🔥"),
+    new Pokemon("Squirtle", "Water", ["Wartortle", "Blastoise"],"💧"),
+    new Pokemon("Pichu", "Electric", ["Pikachu", "Raichu"],"⚡"),
+    new Pokemon("Bulbasaur","Plant",["Ivysaur","Venusaur"],"🌿"),
+];
 
-// Creando instancia para Squirtle
-const Squirtle = new Pokemon("Squirtle", "Water", ["Wartortle", "Blastoise"],"💧");
-
-// Charmander
-console.log(`${Charmander.name} es de tipo ${Charmander.type}`);
-console.log(Charmander.attack());
-console.log(Charmander.evolve(0));
-
-
-// Squirtle
-console.log(`${Squirtle.name} es de tipo ${Squirtle.type}`);
-console.log(Squirtle.attack());
-console.log(Squirtle.evolve(0));
+console.log("\n");
+for(let i in pokeList)
+{
+    let pokemon = pokeList[i]
+    console.log(`${pokemon.name} es de tipo ${pokemon.type}`);
+    console.log(pokemon.attack());
+    console.log(pokemon.evolve(0));
+    console.log("\n");
+};
