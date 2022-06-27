@@ -80,13 +80,41 @@ class Pokemon {
     } else if(this.#stamina == 0 && this.#healthPoints == 70){
         this.#healthPoints -=15
         console.log(`${this.#name} esta MUY MUY cansado y su vida esta bajando MUY MUY rapido. VIDA ACTAUAL:${this.#healthPoints}hp`);
+    } else if (this.#healthPoints == 0){
+        console.log(`${this.#name} necesita recuperarse en un centro pokemon`)
     }
-  }
-  #cansarse() {
+  };
+
+  #cansarse(){
       console.log(`${this.#name} esta cansado este es su ultimo ataque`);
+    
+  };
+
+  eat(nameFood){
+    var food = ["berry","potion","hamburger","poison"]
+
+    if (nameFood == food[0]){
+      this.#healthPoints +=10
+      return`${this.#name} ha comido unas ricas bayas. VIDA ACTUAL:${this.#healthPoints}hp`;
+    } else if(nameFood == food[1]){
+      this.#healthPoints +=15
+      this.#stamina += 5
+      return`${this.#name} ha tomado una refrescante pocion. VIDA ACTUAL:${this.#healthPoints}hp y ENERGIA ACTUAL:${this.#stamina}`;
+
+    } else if(nameFood == food[2]){
+        this.#healthPoints +=25
+        this.#stamina -= 1
+        return`${this.#name} ha tomado una hamburguesa muy grasienta!! VIDA ACTUAL:${this.#healthPoints}hp y ENERGIA ACTUAL:${this.#stamina}`;
+    } else if(nameFood == food[3]){
+      this.#healthPoints -=3000
+      return`${this.#name} ha tomado una TACITA DE VENENO!! ENHORABUENA? VIDA ACTUAL: MUERTE`;
   }
+
   }
-  
+
+
+
+};
   // instacias
   let pokelist = [
       new Pokemon("Charmander", "Fire", ["Charmeleon", "Charizar"],"🔥"),
@@ -104,10 +132,12 @@ class Pokemon {
 //     console.log("\n");
 //   };
   
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+console.log(pokelist[3].eat("hamburger"));
+console.log(pokelist[3].eat("poison"));
+
