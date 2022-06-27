@@ -1,4 +1,5 @@
 class Pokemon {
+<<<<<<< Updated upstream
   #name = "";
   #type = "";
   #evolutions = [];
@@ -44,9 +45,42 @@ class Pokemon {
         atk = `${this.#name} esta atacando`;
         if (this.#symbol !== null) {
             atk += ` con ${this.#symbol}`;
+=======
+    #name = "";
+    #type = "";
+    #evolutions = [];
+    #symbol =""
+  
+  
+    constructor(name, type, evolutions,symbol) {
+      this.#name = name;
+      this.#type = type;
+      this.#evolutions = evolutions;
+      this.#symbol = symbol;
+  }
+    description(){
+      return `${this.#name} es de tipo ${this.#type}`
+    }
+  
+    
+    attack() {
+  
+        return `${this.#name} esta atacando ${this.#symbol}`;
+  
+    }
+  
+    evolve(evolution = 0) {
+        const EVOLVE = this.#evolutions[evolution] || "";
+        let message = "No puedo evolucionar";
+  
+        if (EVOLVE) {
+            message = `${this.#name} esta evolucionando a ${EVOLVE}`;
+            this.#name = EVOLVE;
+>>>>>>> Stashed changes
         }
         atk += ` queda ${this.#stamina} energia`;
     }
+<<<<<<< Updated upstream
 
     return atk;
 }
@@ -89,6 +123,12 @@ class Pokemon {
   
   // instacias
   let pokelist = [
+=======
+  }
+  
+  // instacias
+  let pokeList = [
+>>>>>>> Stashed changes
       new Pokemon("Charmander", "Fire", ["Charmeleon", "Charizar"],"🔥"),
       new Pokemon("Squirtle", "Water", ["Wartortle", "Blastoise"],"💧"),
       new Pokemon("Pichu", "Electric", ["Pikachu", "Raichu"],"⚡"),
@@ -96,6 +136,7 @@ class Pokemon {
   ];
   
   console.log("\n");
+<<<<<<< Updated upstream
   //for(let i in pokelist)
 //   {
 //     let pokemon = pokelist[i];
@@ -111,3 +152,14 @@ console.log(pokelist[1].attack());
 console.log(pokelist[1].attack());
 console.log(pokelist[1].attack());
 console.log(pokelist[1].attack());
+=======
+  for(let i in pokeList)
+  {
+    let pokemon = pokeList[i];
+    console.log(pokemon.description);
+    console.log(pokemon.attack());
+    console.log(pokemon.evolve(0));
+    console.log("\n");
+  };
+  
+>>>>>>> Stashed changes
