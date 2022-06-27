@@ -1,5 +1,4 @@
 class Pokemon {
-<<<<<<< Updated upstream
   #name = "";
   #type = "";
   #evolutions = [];
@@ -45,42 +44,9 @@ class Pokemon {
         atk = `${this.#name} esta atacando`;
         if (this.#symbol !== null) {
             atk += ` con ${this.#symbol}`;
-=======
-    #name = "";
-    #type = "";
-    #evolutions = [];
-    #symbol =""
-  
-  
-    constructor(name, type, evolutions,symbol) {
-      this.#name = name;
-      this.#type = type;
-      this.#evolutions = evolutions;
-      this.#symbol = symbol;
-  }
-    description(){
-      return `${this.#name} es de tipo ${this.#type}`
-    }
-  
-    
-    attack() {
-  
-        return `${this.#name} esta atacando ${this.#symbol}`;
-  
-    }
-  
-    evolve(evolution = 0) {
-        const EVOLVE = this.#evolutions[evolution] || "";
-        let message = "No puedo evolucionar";
-  
-        if (EVOLVE) {
-            message = `${this.#name} esta evolucionando a ${EVOLVE}`;
-            this.#name = EVOLVE;
->>>>>>> Stashed changes
         }
         atk += ` queda ${this.#stamina} energia`;
     }
-<<<<<<< Updated upstream
 
     return atk;
 }
@@ -114,21 +80,41 @@ class Pokemon {
     } else if(this.#stamina == 0 && this.#healthPoints == 70){
         this.#healthPoints -=15
         console.log(`${this.#name} esta MUY MUY cansado y su vida esta bajando MUY MUY rapido. VIDA ACTAUAL:${this.#healthPoints}hp`);
+    } else if (this.#healthPoints == 0){
+        console.log(`${this.#name} necesita recuperarse en un centro pokemon`)
     }
-  }
-  #cansarse() {
+  };
+
+  #cansarse(){
       console.log(`${this.#name} esta cansado este es su ultimo ataque`);
+    
+  };
+
+  //introducir comida
+  eat(nameFood){
+    var food = ["berry","potion","hamburger","poison"]
+
+    if (nameFood == food[0]){
+      this.#healthPoints +=10
+      return`${this.#name} ha comido unas ricas bayas. VIDA ACTUAL:${this.#healthPoints}hp`;
+    } else if(nameFood == food[1]){
+      this.#healthPoints +=15
+      this.#stamina += 5
+      return`${this.#name} ha tomado una refrescante pocion. VIDA ACTUAL:${this.#healthPoints}hp y ENERGIA ACTUAL:${this.#stamina}`;
+
+    } else if(nameFood == food[2]){
+        this.#healthPoints +=25
+        this.#stamina -= 1
+        return`${this.#name} ha tomado una hamburguesa muy grasienta!! VIDA ACTUAL:${this.#healthPoints}hp y ENERGIA ACTUAL:${this.#stamina}`;
+    } else if(nameFood == food[3]){
+      this.#healthPoints -=3000
+      return`${this.#name} ha tomado una TACITA DE VENENO!! ENHORABUENA? VIDA ACTUAL: MUERTE`;
   }
+
   }
-  
+};
   // instacias
   let pokelist = [
-=======
-  }
-  
-  // instacias
-  let pokeList = [
->>>>>>> Stashed changes
       new Pokemon("Charmander", "Fire", ["Charmeleon", "Charizar"],"🔥"),
       new Pokemon("Squirtle", "Water", ["Wartortle", "Blastoise"],"💧"),
       new Pokemon("Pichu", "Electric", ["Pikachu", "Raichu"],"⚡"),
@@ -136,7 +122,6 @@ class Pokemon {
   ];
   
   console.log("\n");
-<<<<<<< Updated upstream
   //for(let i in pokelist)
 //   {
 //     let pokemon = pokelist[i];
@@ -145,21 +130,12 @@ class Pokemon {
 //     console.log("\n");
 //   };
   
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-console.log(pokelist[1].attack());
-=======
-  for(let i in pokeList)
-  {
-    let pokemon = pokeList[i];
-    console.log(pokemon.description);
-    console.log(pokemon.attack());
-    console.log(pokemon.evolve(0));
-    console.log("\n");
-  };
-  
->>>>>>> Stashed changes
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+// console.log(pokelist[3].attack());
+console.log(pokelist[3].eat("hamburger"));
+console.log(pokelist[3].eat("poison"));
+
