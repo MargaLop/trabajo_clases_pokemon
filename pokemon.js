@@ -5,15 +5,17 @@ class Pokemon {
   #symbol =""
   #stamina = 0;
   #evolutionState = 0;
+  #healthPoints = 0;
 
 
-  constructor(name, type, evolutions,symbol,stamina,) {
+  constructor(name, type, evolutions,symbol) {
     this.#name = name;
     this.#type = type;
     this.#evolutions = evolutions;
     this.#symbol = symbol;
     this.#stamina = 5;
     this.#evolutionState = 0;
+    this.#healthPoints = 100;
 
   }
   description(){
@@ -26,6 +28,8 @@ class Pokemon {
 
     if (this.#stamina <= 0) {
         atk = `${this.#name} esta cansado y no puede atacar`;
+        this.#recibirDano()
+
     } else {
         this.#stamina -= 1;
 
@@ -59,16 +63,28 @@ class Pokemon {
   let message = "No puedo evolucionar";
 
   if (EVOLVE) {
-      message = `${this.#name} esta evolucionando a ${EVOLVE}`;
-      this.#name = EVOLVE;
+    this.#healthPoints += 100;
+    message = `${this.#name} esta evolucionando a ${EVOLVE} su vida aaumentando 100hp. VIDA ACTAUAL:${this.#healthPoints}hp`;
+    this.#name = EVOLVE;
+
   }
   console.log(message);
   }
 
-
-    #cansarse() {
-        console.log(`${this.#name} esta cansado este es su ultimo ataque`);
+  #recibirDano(){
+    //si su estamina es baja baja la vida
+    if (this.#stamina == 0){
+        this.#healthPoints -=10
+        console.log(`${this.#name} esta cansado y su vida est bajando VIDA ACTAUAL:${this.#healthPoints}hp`);
+    
+    } else if(this.#stamina == 0 && this.#healthPoints == 70){
+        this.#healthPoints -=15
+        console.log(`${this.#name} esta MUY MUY cansado y su vida esta bajando MUY MUY rapido. VIDA ACTAUAL:${this.#healthPoints}hp`);
     }
+  }
+  #cansarse() {
+      console.log(`${this.#name} esta cansado este es su ultimo ataque`);
+  }
   }
   
   // instacias
@@ -88,6 +104,8 @@ class Pokemon {
 //     console.log("\n");
 //   };
   
+console.log(pokelist[1].attack());
+console.log(pokelist[1].attack());
 console.log(pokelist[1].attack());
 console.log(pokelist[1].attack());
 console.log(pokelist[1].attack());
