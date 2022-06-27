@@ -90,6 +90,7 @@ class Pokemon {
     
   };
 
+  //introducir comida
   eat(nameFood){
     var food = ["berry","potion","hamburger","poison"]
 
